@@ -182,26 +182,26 @@ void main()
 
     if ( object_id == SPHERE )
     {
-        // Propriedades espectrais da esfera
-		Kd = vec3(0.3, 0.5, 1.0);
-        Ks = vec3(0.0,0.0,0.0);
+        // Propriedades do Ovo (Azul Claro)
+        Kd = vec3(0.4, 0.8, 1.0);
+        Ks = vec3(0.1, 0.1, 0.1); // Pouco reflexivo
         Ka = Kd / 2;
-        q = 1.0;
+        q = 10.0;
     }
     else if ( object_id == BUNNY )
     {
-        // Propriedades espectrais do coelho
-        Kd = vec3(0.08,0.4,0.8);
-        Ks = vec3(0.8,0.8,0.8);
+        // Propriedades do Coelho (Dourado/Amarelo)
+        Kd = vec3(0.8, 0.6, 0.1); // Tom de ouro
+        Ks = vec3(1.0, 1.0, 1.0); // Muito reflexivo (brilho branco)
         Ka = Kd / 2;
-        q = 32.0;
+        q = 64.0; // Ponto de brilho menor e mais intenso
     }
     else if ( object_id == PLANE )
     {
-        // Propriedades espectrais do plano
-        Kd = vec3(0.2,0.4,0.2);
-        Ks = vec3(0.3,0.3,0.3);
-        Ka = vec3(0.0,0.0,0.0);
+        // Propriedades do chão (Verde)
+        Kd = vec3(0.3, 0.6, 0.4);
+        Ks = vec3(0.1, 0.1, 0.1);
+        Ka = vec3(0.0, 0.0, 0.0);
         q = 20.0;
     }
     else // Objeto desconhecido = preto
@@ -277,4 +277,4 @@ void main()
     // Cor final com correção gamma, considerando monitor sRGB.
     // Veja https://en.wikipedia.org/w/index.php?title=Gamma_correction&oldid=751281772#Windows.2C_Mac.2C_sRGB_and_TV.2Fvideo_standard_gammas
     color.rgb = pow(color.rgb, vec3(1.0,1.0,1.0)/2.2);
-} 
+}
