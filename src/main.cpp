@@ -339,7 +339,7 @@ int main(int argc, char *argv[])
         glUseProgram(g_GpuProgramID);
 
         // Tempo atual em segundos para a animação
-        float t = (float)glfwGetTime();
+        float t = (float)glfwGetTime() * 0.7;
 
         // Computamos a posição da câmera utilizando coordenadas esféricas.  As
         // variáveis g_CameraDistance, g_CameraPhi, e g_CameraTheta são
@@ -422,8 +422,8 @@ int main(int argc, char *argv[])
             float bz = circle_radius * sin(angle);
 
             // Pulo do coelho:
-            float jump_phase = t * 3.0f + i;
-            float by = -1.0f + 0.35f + 2.0f * std::abs(sin(jump_phase));
+            float jump_phase = t * 2.0f + i;
+            float by = -1.0f + 0.35f + 3.5f * std::abs(sin(jump_phase));
 
             // Face virada para o centro: Rotacionar para apontar o nariz (eixo Z) para a origem.
             // Para apontar para (0,0,0) a partir da borda, a rotação é (-angle - PI/2).
@@ -448,7 +448,7 @@ int main(int argc, char *argv[])
             // Lado do coelho fica no eixo X. Usaremos -0.6f.
             // Órbita na cabeça/barriga precisa de Rotação no eixo X (o mesmo do backflip).
 
-            float orbit_angle1 = t * 5.0f;
+            float orbit_angle1 = -t * 5.0f;
             float orbit_angle2 = orbit_angle1 + 3.141592f;
 
             glm::mat4 model_egg1 = model_bunny_base * Matrix_Translate(0.0f, 0.5f, 0.6f) // Move pra esquerda
